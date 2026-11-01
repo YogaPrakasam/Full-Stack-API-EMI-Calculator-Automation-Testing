@@ -1,19 +1,24 @@
+require("dotenv").config();
+
 module.exports = {
-  default: {
-    paths: ["tests/features/**/*.feature"],
+default: {
+paths: ["tests/features/**/*.feature"],
 
-    requireModule: ["tsx/cjs"],
 
-    require: [
-      "tests/step-definitions/**/*.ts",
-      "tests/support/**/*.ts"
-    ],
+requireModule: ["tsx/cjs"],
 
-    format: [
-      "progress",
-      "html:reports/cucumber-report.html"
-    ],
+require: [
+  "tests/step-definitions/**/*.ts",
+  "tests/support/**/*.ts"
+],
 
-    publishQuiet: true
-  }
+format: [
+  "progress",
+  "html:reports/cucumber-report.html"
+],
+
+publishQuiet: true
+
+
+}
 };

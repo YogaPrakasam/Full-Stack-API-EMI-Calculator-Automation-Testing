@@ -70,10 +70,16 @@ When(
 
 // Navigate to EMI Calculator
 Given(
-"I navigate to the EMI Calculator website",
-async function (this: CustomWorld) {
-await this.page.goto("https://emicalculator.net/");
-}
+  "I navigate to the EMI Calculator website",
+  async function (this: CustomWorld) {
+    const emiUrl = process.env.EMI_CALCULATOR_URL;
+
+    if (!emiUrl) {
+      throw new Error("EMI_CALCULATOR_URL is not configured in the environment");
+    }
+
+    await this.page.goto(emiUrl);
+  }
 );
 
 // Select Home Loan

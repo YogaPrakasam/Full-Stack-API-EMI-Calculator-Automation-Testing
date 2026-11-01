@@ -1,2 +1,250 @@
-# Full-Stack-API-EMI-Calculator-Automation-Testing
-Automated testing project covering REST API validation and EMI calculator workflows using Playwright, TypeScript, Cucumber, and Page Object Model (POM). Includes API test scenarios, EMI calculations, chart validation, slider interactions, and tooltip verification.
+# Full-Stack API & EMI Calculator Automation Testing
+
+## 1. Project Overview
+
+This project demonstrates a full-stack API testing framework and UI automation for an EMI Calculator using Playwright, TypeScript, Cucumber, and the Page Object Model (POM).
+
+The project covers:
+- REST API development and validation.
+- API testing using Playwright.
+- EMI Calculator UI automation.
+- Behaviour-driven development (BDD) using Cucumber.
+- EMI calculation verification.
+- Chart, slider, and tooltip validation.
+- SQL assessment scenarios.
+- AI-assisted locator maintenance documentation.
+
+## 2. Technology Stack
+
+- TypeScript
+- Node.js
+- Playwright
+- Cucumber.js
+- Page Object Model (POM)
+- Express.js
+- dotenv
+- SQL
+
+## 3. Project Structure
+
+```text
+streamhub-assessment/
+│
+├── src/
+│   └── server.ts
+│
+├── tests/
+│   ├── api/
+│   │   └── products.spec.ts
+│   │
+│   ├── features/
+│   │   └── emi-calculator.feature
+│   │
+│   ├── pages/
+│   │   └── emi-calculator.page.ts
+│   │
+│   ├── step-definitions/
+│   │   └── emi-calculator.steps.ts
+│   │
+│   └── support/
+│       ├── hooks.ts
+│       └── world.ts
+│
+├── docs/
+│   ├── ai-self-healing.md
+│   └── ai-usage-reflection.md
+│
+├── sql/
+│   ├── schemas/
+│   ├── queries/
+│   ├── results/
+│   └── README.md
+│
+├── .env.example
+├── cucumber.js
+├── playwright.config.ts
+├── package.json
+└── README.md
+```
+
+## 4. Installation
+
+### Prerequisites
+
+- Node.js
+- npm
+- Git
+
+### Clone the repository
+
+```bash
+git clone https://github.com/YogaPrakasam/Full-Stack-API-EMI-Calculator-Automation-Testing.git
+
+cd Full-Stack-API-EMI-Calculator-Automation-Testing
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Configure environment variables
+
+Create a `.env` file in the project root using `.env.example` as a reference.
+
+Example:
+
+```env
+PORT=3000
+API_BASE_URL=http://localhost:3000
+EMI_CALCULATOR_URL=https://emicalculator.net/
+```
+
+Do not commit the actual `.env` file.
+
+## 5. Build and Run the API
+
+Build the TypeScript project:
+
+```bash
+npm run build
+```
+
+Start the API server:
+
+```bash
+node dist/src/server.js
+```
+
+The API server runs at:
+
+```text
+http://localhost:3000
+```
+
+Health endpoint:
+
+```text
+http://localhost:3000/api/health
+```
+
+Keep the API server running while executing API tests.
+
+## 6. Execute API Tests
+
+Open a second terminal in the project directory and run:
+
+```bash
+npx playwright test
+```
+
+Generate and view the Playwright HTML report:
+
+```bash
+npx playwright show-report
+```
+
+## 7. Execute EMI Calculator UI Tests
+
+Run the Cucumber test suite:
+
+```bash
+npm run test
+```
+
+The Cucumber HTML report is generated at:
+
+```text
+reports/cucumber-report.html
+```
+
+## 8. EMI Calculator Test Coverage
+
+The EMI Calculator automation covers:
+
+- Navigation to the EMI Calculator website.
+- Home Loan EMI calculation.
+- Independent EMI calculation and comparison.
+- Pie chart visibility and numeric validation.
+- Personal Loan calculator selection.
+- Loan amount slider interaction.
+- Interest rate slider interaction.
+- Loan tenure slider interaction.
+- EMI schedule starting month selection.
+- Bar chart visibility and bar counting.
+- Chart tooltip retrieval and validation.
+
+The independent EMI calculation uses the standard reducing-balance EMI formula.
+
+## 9. API Test Coverage
+
+The API tests cover:
+
+- Product listing.
+- Product retrieval by ID.
+- Product search.
+- Category filtering.
+- Price filtering.
+- Sorting.
+- Pagination.
+- Invalid price range handling.
+- Invalid sorting and nonexistent product handling.
+
+## 10. SQL Assessment
+
+SQL assessment solutions are available in the `sql/` directory.
+
+The two scenarios cover:
+
+1. Round-trip transaction identification using transaction pairing, time differences, and percentage changes.
+2. IPL batting performance streak identification using player match statistics.
+
+SQL schemas, sample data, queries, execution results, and supporting screenshots are included in the SQL directory.
+
+Refer to `sql/README.md` for details.
+
+## 11. AI-Assisted Engineering
+
+AI tools were used as pair-programming assistants during framework development, debugging, test implementation, and documentation.
+
+The following documents describe the approach:
+
+- `docs/ai-usage-reflection.md`
+- `docs/ai-self-healing.md`
+
+These documents explain AI usage, locator repair strategies, validation, benefits, and limitations.
+
+## 12. Test Execution Results
+
+Latest successful Cucumber execution:
+
+- Scenarios: 3 passed
+- Steps: 29 passed
+- Failed scenarios: 0
+
+EMI calculation validation:
+
+| Test | Expected EMI | Actual EMI | Result |
+|---|---:|---:|---|
+| Home Loan | INR 33,038 | INR 33,038 | Passed |
+| Personal Loan | INR 46,351 | INR 46,351 | Passed |
+
+The API test suite was also executed successfully with 9 passing tests.
+
+## 13. Reports and Evidence
+
+The repository includes:
+- Cucumber HTML execution report.
+- SQL query results and screenshots.
+- Test source files and framework implementation.
+
+Playwright HTML reports and test result artifacts can be generated by running the corresponding commands above.
+
+## 14. Notes
+
+- The API server must be running before API tests are executed.
+- Environment-specific URLs and configuration values are maintained in `.env`.
+- `.env` is excluded from Git.
+- `.env.example` provides the required configuration template.
+- Tests are organized using reusable page objects and separate step definitions.
